@@ -183,4 +183,27 @@ class ExpBarRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ExpBarRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val expBarRot : ExpBarRot = ExpBarRot(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            expBarRot.draw(canvas, paint)
+            animator.animate {
+                expBarRot.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            expBarRot.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
