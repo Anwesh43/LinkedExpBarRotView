@@ -214,4 +214,13 @@ class ShrinkingBarView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : ShrinkingBarView {
+            val view : ShrinkingBarView = ShrinkingBarView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
