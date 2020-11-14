@@ -207,4 +207,13 @@ class ExpBarRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : ExpBarRotView {
+            val view : ExpBarRotView = ExpBarRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
