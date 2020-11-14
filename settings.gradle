@@ -1,3 +1,4 @@
+include ':shrinkingbarview'
 include ':ExpBarRotView'
 include ':app'
 rootProject.name = "LinkedExpBarRotView"
